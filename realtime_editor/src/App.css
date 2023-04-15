@@ -1,38 +1,100 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.homePageWrapper {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  color: #fff;
+  height: 100vh;
+
+  /* max-width: 90%; */
 }
 
-.App-link {
-  color: #61dafb;
+.formWrapper {
+  background: #282a36;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+footer {
+  position: fixed;
+  bottom: 0;
+}
+
+footer h4 {
+  font-weight: 400;
+}
+
+.mainLabel {
+  margin-bottom: 20px;
+  margin-top: 0;
+  font-weight: 400;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  margin: 0 2%;
+}
+
+.homePageLogo {
+  height: 6vw;
+  margin-bottom: 30px;
+}
+
+.inputBox {
+  padding: 8px 10px;
+  border-radius: 10px;
+  outline: none;
+  /* border: none; */
+  border: 1px solid #282A36;
+  border-bottom: 3px solid #282A36;
+  margin-bottom: 15px;
+  background-color: #eee;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.inputBox:focus {
+  border: 1px solid #8c76f1;
+  border-bottom: 3px solid #8c76f1;
+}
+
+.btn {
+  border: none;
+  border-radius: 10px;
+  padding: 8px 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: .3s ease-in-out all;
+}
+
+.joinBtn {
+  background: #4aee88;
+  width: 100px;
+  margin-left: auto;
+}
+
+.joinBtn:hover {
+  background: #3cc270;
+}
+
+.createInfo {
+  margin: 0 auto;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.createNewBtn,
+footer a {
+  color: #4aee88;
+  text-decoration: none;
+  border-bottom: 1px solid #4aee88;
+  transition: .3s ease-in-out all;
+}
+
+.createNewBtn:hover,
+footer a:hover {
+  color: #40ca75;
+  border-bottom: 1px solid #40ca75;
 }
