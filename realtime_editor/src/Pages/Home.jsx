@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { v4 as uuidV4 } from 'uuid'
+import toast from 'react-hot-toast'
 
 
 const Home = () => {
@@ -8,13 +10,37 @@ const Home = () => {
     const [roomId, setRoomId] = useState('')
     const [userName, setUserName] = useState('')
 
+    const navigate = useNavigate()
+
     const createNewRoom = (e) => {
         e.preventDefault()
 
         const id = uuidV4()
         // console.log(id)
         setRoomId(id)
+        toast.success('Created a New Room')
+    }
 
+    const joinRoom = () => {
+
+        if (!roomId || !userName) {
+            toast.error('Room Id and User Name are required')
+            return
+        }
+
+        // Redirect
+        navigate(`/editor/${roomId}`, {
+            state: {
+                userName,
+            },
+        })
+    }
+
+    const handleInputEnter = (e) => {
+
+        if (e.code === 'Enter') {
+            joinRoom()
+        }
     }
 
     return (
@@ -31,28 +57,25 @@ const Home = () => {
                         type="text"
                         className='inputBox'
                         placeholder='Room Id'
-                        onChange={(e) => {
-                            setRoomId(e.target.value)
-                            console.log(e.target.value)
-                        }
-                        }
+                        onChange={(e) => setRoomId(e.target.value)}
                         value={roomId}
+                        onKeyUp={handleInputEnter}
                     />
 
                     <input
                         type="text"
                         className='inputBox'
                         placeholder='User Name'
-                        onChange={(e) => {
-                            setUserName(e.target.value)
-                            console.log(e.target.value)
-                        }
-                        }
+                        onChange={(e) => setUserName(e.target.value)}
                         value={userName}
+                        onKeyUp={handleInputEnter}
                     />
 
 
-                    <button className='btn joinBtn'>
+                    <button
+                        className='btn joinBtn'
+                        onClick={joinRoom}
+                    >
                         Join
                     </button>
 
